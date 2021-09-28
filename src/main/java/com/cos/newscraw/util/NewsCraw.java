@@ -27,10 +27,10 @@ public class NewsCraw {
 
 			Document doc = Jsoup.parse(html);
 
-			Elements companyElement = doc.select("#changecmt_text em");
+			Element companyElement = doc.selectFirst(".article_header .press_logo img");
 			Element titleElement = doc.selectFirst("#articleTitle");
 			Element createdAtElement = doc.selectFirst(".t11");
-			String company = companyElement.text();
+			String company = companyElement.attr("alt");
 			String title = titleElement.text();
 			String createdAt =createdAtElement.text();
 
